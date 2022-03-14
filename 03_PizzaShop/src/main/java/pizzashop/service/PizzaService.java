@@ -6,6 +6,7 @@ import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
 
+
 import java.util.List;
 
 public class PizzaService {
@@ -25,6 +26,8 @@ public class PizzaService {
     public void addPayment(int table, PaymentType type, double amount){
         Payment payment= new Payment(table, type, amount);
         payRepo.add(payment);
+
+
     }
 
     public double getTotalAmount(PaymentType type){
