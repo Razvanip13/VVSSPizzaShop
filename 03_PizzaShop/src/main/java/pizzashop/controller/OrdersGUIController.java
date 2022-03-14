@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import pizzashop.model.MenuDataModel;
-import pizzashop.gui.OrdersGUI;
 import pizzashop.service.PaymentAlert;
 import pizzashop.service.PizzaService;
 
@@ -23,13 +22,13 @@ public class OrdersGUIController {
     @FXML
     private ComboBox<Integer> orderQuantity;
     @FXML
-    private TableView orderTable;
+    private TableView<MenuDataModel> orderTable;
     @FXML
-    private TableColumn tableQuantity;
+    private TableColumn<MenuDataModel,Integer> tableQuantity;
     @FXML
-    protected TableColumn tableMenuItem;
+    protected TableColumn<MenuDataModel,String> tableMenuItem;
     @FXML
-    private TableColumn tablePrice;
+    private TableColumn<MenuDataModel,Double> tablePrice;
     @FXML
     private Label pizzaTypeLabel;
     @FXML
