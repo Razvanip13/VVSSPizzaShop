@@ -1,6 +1,5 @@
 package pizzashop.repository;
 
-import javafx.collections.ObservableList;
 import pizzashop.model.MenuDataModel;
 import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
@@ -28,8 +27,6 @@ public class PaymentRepository {
                 Payment payment=getPayment(line);
                 paymentList.add(payment);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
