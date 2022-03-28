@@ -48,7 +48,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_valid_test1() {
+    void testAddPaymentECPValid1() {
         int table=4;
         double amount =5;
         PaymentType type=PaymentType.Card;
@@ -62,7 +62,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_BVA_valid_test1() {
+    void testAddPaymentBVAValid1() {
         int table = 1;
         double amount = 5;
         PaymentType type = PaymentType.Card;
@@ -75,7 +75,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_BVA_valid_test2() {
+    void testAddPaymentBVAValid2() {
         int table = 8;
         double amount = 5;
         PaymentType type = PaymentType.Card;
@@ -88,7 +88,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_invalid_test2() {
+    void testAddPaymentECPInvalid1() {
         int table=50;
         double amount =0;
         PaymentType type=PaymentType.Cash;
@@ -101,7 +101,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_invalid_test1() {
+    void testAddPaymentECPInvalid2() {
         int table=-4;
         double amount =-5;
         PaymentType type=PaymentType.Card;
@@ -114,7 +114,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_valid_test2() {
+    void testAddPaymentECPValid2() {
         int table=7;
         double amount =6000;
         PaymentType type=PaymentType.Cash;
@@ -127,8 +127,8 @@ class PizzaServiceTest {
     }
 
 	@Test
-    void add_payment_BVA_invalid_test_1(){
-        int table=0;
+    void testAddPaymentBVAInvalid1(){
+        int table=2;
         double amount =0;
         PaymentType type=PaymentType.Cash;
 
@@ -140,9 +140,9 @@ class PizzaServiceTest {
     }
 
 	@Test
-    void add_payment_BVA_invalid_test_2(){
-        int table=9;
-        double amount =-20.5;
+    void testAddPaymentBVAInvalid2(){
+        int table=2;
+        double amount =-1;
         PaymentType type=PaymentType.Card;
 
         service.addPayment(table,type,amount);
