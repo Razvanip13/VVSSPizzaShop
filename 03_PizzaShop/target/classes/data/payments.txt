@@ -10,4 +10,8 @@
 5,Cash,42.0
 1,Card,74.3
 4,Card,5.0
+1,Card,5.0
+8,Card,5.0
 4,Card,5.0
+0,Card,5.0
+-1,Card,5.0
