@@ -142,7 +142,7 @@ class PizzaServiceTest {
 	@Test
     void add_payment_BVA_invalid_test_2(){
         int table=9;
-        double amount =20.5;
+        double amount =-20.5;
         PaymentType type=PaymentType.Card;
 
         service.addPayment(table,type,amount);
