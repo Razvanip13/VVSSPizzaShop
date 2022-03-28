@@ -24,10 +24,11 @@ public class PizzaService {
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
     public void addPayment(int table, PaymentType type, double amount){
+        if(table <= 0 || table >8) return;
+        if(amount <= 0) return;
+
         Payment payment= new Payment(table, type, amount);
         payRepo.add(payment);
-
-
     }
 
     public double getTotalAmount(PaymentType type){
