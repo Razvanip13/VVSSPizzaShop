@@ -53,11 +53,38 @@ class PizzaServiceTest {
         double amount =5;
         PaymentType type=PaymentType.Card;
 
-        service.addPayment(table,type,amount);
+
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
+    }
+
+    @Test
+    void add_payment_BVA_valid_test1() {
+        int table = 1;
+        double amount = 5;
+        PaymentType type = PaymentType.Card;
+
+        service.addPayment(table, type, amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
+    }
+
+    @Test
+    void add_payment_BVA_valid_test2() {
+        int table = 8;
+        double amount = 5;
+        PaymentType type = PaymentType.Card;
+
+        service.addPayment(table, type, amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
     @Test
