@@ -1,6 +1,8 @@
 package pizzashop.model;
 
 
+import java.util.Objects;
+
 public class Payment {
 
     private int tableNumber;
@@ -11,6 +13,19 @@ public class Payment {
         this.tableNumber = tableNumber;
         this.type = type;
         this.amount = amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Payment)) return false;
+        Payment payment = (Payment) o;
+        return getTableNumber() == payment.getTableNumber() && Double.compare(payment.getAmount(), getAmount()) == 0 && getType() == payment.getType();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTableNumber(), getType(), getAmount());
     }
 
     public int getTableNumber() {
