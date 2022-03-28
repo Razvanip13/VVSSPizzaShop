@@ -30,10 +30,11 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_valid_test() {
-        int table = 4;
-        double amount = 5;
-        PaymentType type = PaymentType.Card;
+    void add_payment_ECP_valid_test1() {
+        int table=4;
+        double amount =5;
+        PaymentType type=PaymentType.Card;
+
 
         service.addPayment(table, type, amount);
 
@@ -67,4 +68,70 @@ class PizzaServiceTest {
 
         assertEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
+
+    @Test
+    void add_payment_ECP_invalid_test2() {
+        int table=50;
+        double amount =0;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
+    void add_payment_ECP_invalid_test1() {
+        int table=-4;
+        double amount =-5;
+        PaymentType type=PaymentType.Card;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
+    void add_payment_ECP_valid_test2() {
+        int table=7;
+        double amount =6000;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+	@Test
+    void add_payment_BVA_invalid_test_1(){
+        int table=0;
+        double amount =0;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+	@Test
+    void add_payment_BVA_invalid_test_2(){
+        int table=9;
+        double amount =20.5;
+        PaymentType type=PaymentType.Card;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
 }
