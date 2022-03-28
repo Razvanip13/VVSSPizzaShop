@@ -30,7 +30,7 @@ class PizzaServiceTest {
     }
 
     @Test
-    void add_payment_ECP_valid_test() {
+    void add_payment_ECP_valid_test1() {
         int table=4;
         double amount =5;
         PaymentType type=PaymentType.Card;
@@ -40,5 +40,44 @@ class PizzaServiceTest {
         List<Payment> payments = service.getPayments();
 
         assertEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
+    void add_payment_ECP_valid_test2() {
+        int table=7;
+        double amount =6000;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
+    void add_payment_ECP_invalid_test1() {
+        int table=100;
+        double amount =-2;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
+    void add_payment_ECP_invalid_test2() {
+        int table=-2;
+        double amount =0;
+        PaymentType type=PaymentType.Card;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
     }
 }
