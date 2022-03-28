@@ -11,3 +11,8 @@
 1,Card,74.3
 4,Card,5.0
 4,Card,5.0
+4,Card,5.0
+0,Cash,0.0
+4,Card,5.0
+0,Cash,0.0
+9,Card,20.5
