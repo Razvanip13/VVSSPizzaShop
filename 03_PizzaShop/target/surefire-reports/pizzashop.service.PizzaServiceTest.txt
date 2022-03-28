@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: pizzashop.service.PizzaServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.061 s <<< FAILURE! - in pizzashop.service.PizzaServiceTest
+add_payment_ECP_invalid_test1  Time elapsed: 0.035 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <-4,Card,-5.0>
+	at pizzashop.service.PizzaServiceTest.add_payment_ECP_invalid_test1(PizzaServiceTest.java:68)
+
+add_payment_ECP_invalid_test2  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <50,Cash,0.0>
+	at pizzashop.service.PizzaServiceTest.add_payment_ECP_invalid_test2(PizzaServiceTest.java:55)
+
+add_payment_BVA_invalid_test_1  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <0,Cash,0.0>
+	at pizzashop.service.PizzaServiceTest.add_payment_BVA_invalid_test_1(PizzaServiceTest.java:94)
+
+add_payment_BVA_invalid_test_2  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not equal but was: <9,Card,20.5>
+	at pizzashop.service.PizzaServiceTest.add_payment_BVA_invalid_test_2(PizzaServiceTest.java:107)
+

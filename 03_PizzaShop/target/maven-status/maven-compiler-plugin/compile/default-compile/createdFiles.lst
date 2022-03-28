@@ -7,10 +7,10 @@ pizzashop\gui\OrdersGUI$1.class
 pizzashop\service\PizzaService.class
 pizzashop\model\MenuDataModel.class
 pizzashop\controller\MainGUIController.class
-pizzashop\gui\KitchenGUI$1.class
 pizzashop\controller\KitchenGUIController.class
 pizzashop\Main$1.class
 pizzashop\controller\OrdersGUIController.class
+pizzashop\service\ServiceException.class
 pizzashop\repository\PaymentRepository.class
 pizzashop\service\PaymentAlert.class
 pizzashop\model\Payment.class
