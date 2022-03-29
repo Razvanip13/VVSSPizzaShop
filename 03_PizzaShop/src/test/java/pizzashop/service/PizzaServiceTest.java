@@ -32,8 +32,7 @@ class PizzaServiceTest {
 
     @AfterEach
     void tearDown() {
-        //Nu are sens. Stim cum merge
-        //Glory to Ukraine. Glory to Ukraine
+
     }
 
     @AfterAll
@@ -50,9 +49,8 @@ class PizzaServiceTest {
     @Test
     void testAddPaymentECPValid1() {
         int table=4;
-        double amount =5;
+        double amount =5000;
         PaymentType type=PaymentType.Card;
-
 
         service.addPayment(table, type, amount);
 
@@ -64,7 +62,7 @@ class PizzaServiceTest {
     @Test
     void testAddPaymentBVAValid1() {
         int table = 1;
-        double amount = 5;
+        double amount = 1;
         PaymentType type = PaymentType.Card;
 
         service.addPayment(table, type, amount);
@@ -77,7 +75,7 @@ class PizzaServiceTest {
     @Test
     void testAddPaymentBVAValid2() {
         int table = 8;
-        double amount = 5;
+        double amount = 9999;
         PaymentType type = PaymentType.Card;
 
         service.addPayment(table, type, amount);
@@ -89,20 +87,7 @@ class PizzaServiceTest {
 
     @Test
     void testAddPaymentECPInvalid1() {
-        int table=50;
-        double amount =0;
-        PaymentType type=PaymentType.Cash;
-
-        service.addPayment(table,type,amount);
-
-        List<Payment> payments = service.getPayments();
-
-        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
-    }
-
-    @Test
-    void testAddPaymentECPInvalid2() {
-        int table=-4;
+        int table= -8;
         double amount =-5;
         PaymentType type=PaymentType.Card;
 
@@ -114,8 +99,21 @@ class PizzaServiceTest {
     }
 
     @Test
+    void testAddPaymentECPInvalid2() {
+        int table=50;
+        double amount =1200;
+        PaymentType type=PaymentType.Cash;
+
+        service.addPayment(table,type,amount);
+
+        List<Payment> payments = service.getPayments();
+
+        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+    }
+
+    @Test
     void testAddPaymentECPValid2() {
-        int table=7;
+        int table=6;
         double amount =6000;
         PaymentType type=PaymentType.Cash;
 
@@ -128,8 +126,8 @@ class PizzaServiceTest {
 
 	@Test
     void testAddPaymentBVAInvalid1(){
-        int table=2;
-        double amount =0;
+        int table=0;
+        double amount =-1;
         PaymentType type=PaymentType.Cash;
 
         service.addPayment(table,type,amount);
@@ -141,8 +139,8 @@ class PizzaServiceTest {
 
 	@Test
     void testAddPaymentBVAInvalid2(){
-        int table=2;
-        double amount =-1;
+        int table=9;
+        double amount =10001;
         PaymentType type=PaymentType.Card;
 
         service.addPayment(table,type,amount);
