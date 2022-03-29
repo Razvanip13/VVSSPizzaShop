@@ -25,7 +25,7 @@ public class PizzaService {
 
     public void addPayment(int table, PaymentType type, double amount){
         if(table <= 0 || table >8) return;
-        if(amount <= 0) return;
+        if(amount <= 0 || amount > 10000) return;
 
         Payment payment= new Payment(table, type, amount);
         payRepo.add(payment);

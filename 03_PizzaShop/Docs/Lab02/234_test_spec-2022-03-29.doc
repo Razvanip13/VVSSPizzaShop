@@ -12,7 +12,7 @@
 <p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width=231 height=56 src="http://localhost/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
 <div class="doc_title"><p>Test Specification</p></div>
 <div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Prj234<br/>Test Suite: Prj234 - iair2746_BBT</p></div>
-<div class="summary"><p id="printedby">Printed by TestLink on 25/03/2022</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 29/03/2022</p></div>
 <div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
 <h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.iair2746_BBT</a></b></p>
 <p style="padding-left: 45px;"><a href="#toc_tc11698">234-23: ECP_VALID_1</a></p><p style="padding-left: 45px;"><a href="#toc_tc11700">234-24: ECP_INVALID_1</a></p><p style="padding-left: 45px;"><a href="#toc_tc11702">234-25: BVA_VALID_1</a></p><p style="padding-left: 45px;"><a href="#toc_tc11704">234-26: BVA_INVALID_1</a></p></div><h1 class="doclevel" >Scope</h1>
@@ -22,75 +22,70 @@
 <div><p>Se testeaza functionalitatea F01 - adaugarea platii in fisier.</p>
 </div><a name="toc_tc11698"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-23: ECP_VALID_1&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">hcir2734</td></tr>
-<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">imir2740</td></tr>
-<tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testAddPaymentECPValid (table:integer, type:PaymentType, amount:double):void&nbsp; method.</p>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testAddPaymentECPValid1 (table:integer, type:PaymentType, amount:double):void&nbsp; method.</p>
 
-<p>Valid input parameters: table &gt; 0, table&lt; 8, amount &gt; 0, type from {Cash, Card}</p>
-
-<p>eg: (input parameters): table =4, amount =5.00, type=PaymentType.Card</p>
+<p>eg: (input parameters): table =4, amount =5000, type=PaymentType.Card</p>
 
 <p>&nbsp; &nbsp; &nbsp; (expected output): data is saved to the file</p>
 
 <p>&nbsp;</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table &gt; 0,&nbsp; table &lt;=&nbsp;8, table is integer</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>1 &lt;=table &lt;=8 (table is integer)</p>
 
-<p>amount &gt; 0, amount is a double</p>
+<p>0 &lt; amount &lt;= 10000 (amount is double)</p>
 
-<p>type from {Cash, Card}</p>
+<p>&nbsp;type from {Cash, Card}</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentECPValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentECPValid1</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F01:  Add payment in file [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>
 <a name="toc_tc11700"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-24: ECP_INVALID_1&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">iair2746</td></tr>
-<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">imir2740</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">hcir2734</td></tr>
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Parameters which hold negative or null values will display an exception.</p>
 
-<p>The test method is:&nbsp;testAddPaymentECPInvalid(table:integer, type:PaymentType , amount: double)</p>
+<p>The test method is:&nbsp;testAddPaymentECPInvalid1(table:integer, paymenType :PaymentType , amount: double)</p>
 
 <p>Test example:</p>
 
-<p>Input: table = -5, amount = -2.38, paymentType = Cash</p>
+<p>Input: table = -8, amount = -5, paymentType = Card</p>
 
 <p>Output: Exception</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table &gt; 0 and table &lt;8, table is integer</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>1 &lt;=table &lt;= 8&nbsp; (table is integer)</p>
 
-<p>amount &gt; 0 and amout is double</p>
+<p>0 &lt; amount &lt;= 10000&nbsp; (amount is double)</p>
 
 <p>paymenType belongs to {Cash, Card}</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentECPInvalid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentECPInvalid1</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F01:  Add payment in file [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>
 <a name="toc_tc11702"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-25: BVA_VALID_1&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">hcir2734</td></tr>
-<tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testAddPaymentBVAValid (table:integer, type:PaymentType, amount:double):void&nbsp; method.</p>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testAddPaymentBVAValid1 (table:integer, type:PaymentType, amount:double):void&nbsp; method.</p>
 
-<p>Valid input parameters: table &gt; 0, table&lt; 8, amount &gt; 0, type from {Cash, Card}</p>
-
-<p>eg: (input parameters): table =1, amount =5.00, type=PaymentType.Card</p>
+<p>eg: (input parameters): table =1, amount =1, type=PaymentType.Card</p>
 
 <p>&nbsp; &nbsp; &nbsp; (expected output): data is saved to the file</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table &gt; 0,&nbsp; table &lt;=&nbsp;8, table is integer</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>&nbsp;1&lt;= table&lt;=8 (table is integer)</p>
 
-<p>amount &gt; 0, amount is a double</p>
+<p>&nbsp;0&lt; amount &lt;=&nbsp;10000,&nbsp; (amount is a double)</p>
 
 <p>type from {Cash, Card}</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentBVAValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testAddPaymentBVAValid1</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F01:  Add payment in file [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -100,23 +95,23 @@
 <tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">hcir2734</td></tr>
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>Parameters which hold negative or null values will display an exception.</p>
 
-<p>The test method is :&nbsp;testAddPaymentBVAInvalid(table:integer, type:PaymentType, amount:double).&nbsp;</p>
+<p>The test method is :&nbsp;testAddPaymentBVAInvalid1 (table:integer, type:PaymentType, amount:double).&nbsp;</p>
 
 <p>Test example:</p>
 
-<p>Input: table = 0, amount = 0, paymentType = Cash</p>
+<p>Input: table = 0, amount = -1, paymentType = Cash</p>
 
 <p>Output: Exception</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table &gt; 0 and table &lt;8, table is integer</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>1&lt;= table&lt;=8 (table is integer)</p>
 
-<p>amount &gt; 0 and amout is double</p>
+<p>0&lt; amount &lt;=&nbsp;10000,&nbsp; (amount is a double)</p>
 
-<p>paymenType belongs to {Cash, Card}</p>
+<p>type from {Cash, Card}</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest# testAddPaymentBVAInvalid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest# testAddPaymentBVAInvalid1</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F01:  Add payment in file [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
