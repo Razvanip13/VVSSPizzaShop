@@ -32,7 +32,7 @@ class PizzaServiceTest {
 
     @AfterEach
     void tearDown() {
-
+        service = null;
     }
 
     @AfterAll
