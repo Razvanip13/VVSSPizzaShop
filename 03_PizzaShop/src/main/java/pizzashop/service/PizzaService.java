@@ -31,22 +31,20 @@ public class PizzaService {
         payRepo.add(payment);
     }
 
-    public double getTotalAmount(PaymentType type){
+    public double getTotalAmount(String type) throws ServiceException {
+
         double total=0.0f;
         List<Payment> l=getPayments();
-        if (l==null){
+        if(!type.equals("Card") && !type.equals("Cash")){
+            throw new ServiceException("Invalid payment type.");
+        }
+        if(l==null || l.isEmpty()){
             return total;
         }
-
-        if(l.isEmpty()){
-            return total;
-        }
-
         for (Payment p:l){
-            if (p.getType().equals(type))
+            if (p.getType().name().equals(type))
                 total+=p.getAmount();
         }
         return total;
     }
-
 }
