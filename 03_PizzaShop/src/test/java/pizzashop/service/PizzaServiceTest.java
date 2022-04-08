@@ -20,14 +20,14 @@ class PizzaServiceTest {
     private PizzaService service;
 
     @BeforeAll
-    static void init(){
-        menuRepository =new MenuRepository();
-        paymentRepository =new PaymentRepository();
+    static void init() {
+        menuRepository = new MenuRepository();
+        paymentRepository = new PaymentRepository();
     }
 
     @BeforeEach
     void setUp() {
-        service =new PizzaService(menuRepository,paymentRepository);
+        service = new PizzaService(menuRepository, paymentRepository);
     }
 
     @AfterEach
@@ -36,7 +36,7 @@ class PizzaServiceTest {
     }
 
     @AfterAll
-    static void cleanUp(){
+    static void cleanUp() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("target/classes/data/payments.txt"));
             bw.write("");
@@ -48,9 +48,9 @@ class PizzaServiceTest {
 
     @Test
     void testAddPaymentECPValid1() {
-        int table=4;
-        double amount =5000;
-        PaymentType type=PaymentType.Card;
+        int table = 4;
+        double amount = 5000;
+        PaymentType type = PaymentType.Card;
 
         service.addPayment(table, type, amount);
 
@@ -87,67 +87,67 @@ class PizzaServiceTest {
 
     @Test
     void testAddPaymentECPInvalid1() {
-        int table= -8;
-        double amount =-5;
-        PaymentType type=PaymentType.Card;
+        int table = -8;
+        double amount = -5;
+        PaymentType type = PaymentType.Card;
 
-        service.addPayment(table,type,amount);
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertNotEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
     @Test
     void testAddPaymentECPInvalid2() {
-        int table=50;
-        double amount =1200;
-        PaymentType type=PaymentType.Cash;
+        int table = 50;
+        double amount = 1200;
+        PaymentType type = PaymentType.Cash;
 
-        service.addPayment(table,type,amount);
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertNotEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
     @Test
     void testAddPaymentECPValid2() {
-        int table=6;
-        double amount =6000;
-        PaymentType type=PaymentType.Cash;
+        int table = 6;
+        double amount = 6000;
+        PaymentType type = PaymentType.Cash;
 
-        service.addPayment(table,type,amount);
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
-	@Test
-    void testAddPaymentBVAInvalid1(){
-        int table=0;
-        double amount =-1;
-        PaymentType type=PaymentType.Cash;
+    @Test
+    void testAddPaymentBVAInvalid1() {
+        int table = 0;
+        double amount = -1;
+        PaymentType type = PaymentType.Cash;
 
-        service.addPayment(table,type,amount);
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertNotEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
-	@Test
-    void testAddPaymentBVAInvalid2(){
-        int table=9;
-        double amount =10001;
-        PaymentType type=PaymentType.Card;
+    @Test
+    void testAddPaymentBVAInvalid2() {
+        int table = 9;
+        double amount = 10001;
+        PaymentType type = PaymentType.Card;
 
-        service.addPayment(table,type,amount);
+        service.addPayment(table, type, amount);
 
         List<Payment> payments = service.getPayments();
 
-        assertNotEquals(new Payment(table,type,amount),payments.get(payments.size()-1));
+        assertNotEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
 
 }
