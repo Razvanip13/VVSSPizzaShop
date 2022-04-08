@@ -17,7 +17,7 @@ class PizzaServiceTest {
 
     private static MenuRepository menuRepository;
     private static PaymentRepository paymentRepository;
-    private PizzaService service;
+    private static PizzaService service;
 
     @BeforeAll
     static void init() {
@@ -32,16 +32,35 @@ class PizzaServiceTest {
 
     @AfterEach
     void tearDown() {
-        service = null;
-    }
-
-    @AfterAll
-    static void cleanUp() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/data/payments.txt"));
+            bw.write("");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("target/classes/data/payments.txt"));
             bw.write("");
             bw.close();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @AfterAll
+    static void cleanUp() {
+        service =null;
+    }
+
+    @Test
+    void testGetTotalAmountValid(){
+
+        String type="Card";
+
+        try {
+            assertEquals(15015.0, service.getTotalAmount(type));
+        } catch (ServiceException e) {
             e.printStackTrace();
         }
     }
@@ -149,5 +168,22 @@ class PizzaServiceTest {
 
         assertNotEquals(new Payment(table, type, amount), payments.get(payments.size() - 1));
     }
+
+    @Test
+    void testGetTotalAmountInvalid(){
+
+        String type="";
+
+        service.addPayment(4,PaymentType.Card,5);
+        service.addPayment(4,PaymentType.Card,10);
+
+        Exception exception = assertThrows(ServiceException.class, () -> service.getTotalAmount(type));
+
+        String expectedMessage = "Invalid payment type.";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
 
 }
