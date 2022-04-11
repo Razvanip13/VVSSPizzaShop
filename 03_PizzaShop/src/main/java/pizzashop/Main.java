@@ -25,7 +25,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         MenuRepository repoMenu=new MenuRepository();
-        PaymentRepository payRepo= new PaymentRepository();
+        PaymentRepository payRepo= new PaymentRepository("data/payments.txt");
         PizzaService service = new PizzaService(repoMenu, payRepo);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainFXML.fxml"));

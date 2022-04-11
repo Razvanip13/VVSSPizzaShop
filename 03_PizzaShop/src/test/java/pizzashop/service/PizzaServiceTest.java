@@ -6,9 +6,7 @@ import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +20,7 @@ class PizzaServiceTest {
     @BeforeAll
     static void init() {
         menuRepository = new MenuRepository();
-        paymentRepository = new PaymentRepository();
+        paymentRepository = new PaymentRepository("src/main/resources/data/payments.txt");
     }
 
     @BeforeEach
@@ -53,17 +51,6 @@ class PizzaServiceTest {
         service =null;
     }
 
-    @Test
-    void testGetTotalAmountValid(){
-
-        String type="Card";
-
-        try {
-            assertEquals(15015.0, service.getTotalAmount(type));
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
     void testAddPaymentECPValid1() {
@@ -170,12 +157,26 @@ class PizzaServiceTest {
     }
 
     @Test
+    void testGetTotalAmountValid(){
+
+        String type="Card";
+
+        try {
+            assertEquals(15015.0, service.getTotalAmount(type));
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     void testGetTotalAmountInvalid(){
 
         String type="";
 
+
         service.addPayment(4,PaymentType.Card,5);
         service.addPayment(4,PaymentType.Card,10);
+
 
         Exception exception = assertThrows(ServiceException.class, () -> service.getTotalAmount(type));
 
@@ -185,5 +186,21 @@ class PizzaServiceTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    @Test
+    void testGetTotalAmountValid2(){
+
+        String type="";
+
+        PaymentRepository paymentRepository2 = new PaymentRepository("target/classes/data/payments_empty.txt");
+        PizzaService service2 = new PizzaService(menuRepository,paymentRepository2);
+
+
+        try {
+            assertEquals(0,service2.getTotalAmount("Card"));
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
