@@ -10,22 +10,27 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class PaymentRepository {
-    private static String filename = "data/payments.txt";
+    private String filename = "data/payments.txt";
     private List<Payment> paymentList;
 
-    public PaymentRepository(){
+    public PaymentRepository(String filename){
         this.paymentList = new ArrayList<>();
+        this.filename = filename;
         readPayments();
+
     }
 
     private void readPayments(){
-        ClassLoader classLoader = PaymentRepository.class.getClassLoader();
-        File file = new File(classLoader.getResource(filename).getFile());
+//        ClassLoader classLoader = PaymentRepository.class.getClassLoader();
+//        File file = new File(classLoader.getResource(filename).getFile());
+        File file = new File(filename);
         try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line = null;
             while((line=br.readLine())!=null){
                 Payment payment=getPayment(line);
-                paymentList.add(payment);
+                if(payment!=null) {
+                    paymentList.add(payment);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,7 +59,8 @@ public class PaymentRepository {
 
     public void writeAll(){
         ClassLoader classLoader = PaymentRepository.class.getClassLoader();
-        File file = new File(classLoader.getResource(filename).getFile());
+//        File file = new File(classLoader.getResource(filename).getFile());
+        File file = new File(filename);
 
         BufferedWriter bw = null;
         try {
