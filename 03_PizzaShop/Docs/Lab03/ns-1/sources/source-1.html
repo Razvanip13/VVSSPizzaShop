@@ -58,10 +58,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    90%
+    95%
   </span>
   <span class="absValue">
-    (18/20)
+    (19/20)
   </span>
 </td>
 </tr>
@@ -113,16 +113,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">38</i>&nbsp;        if(!type.equals(&quot;Card&quot;) &amp;&amp; !type.equals(&quot;Cash&quot;)){</b>
 <b class="fc"><i class="no-highlight">39</i>&nbsp;            throw new ServiceException(&quot;Invalid payment type.&quot;);</b>
 <i class="no-highlight">40</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">41</i>&nbsp;        if(l==null || l.isEmpty()){</b>
-<b class="nc"><i class="no-highlight">42</i>&nbsp;            return total;</b>
-<i class="no-highlight">43</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">44</i>&nbsp;        for (Payment p:l){</b>
-<b class="fc"><i class="no-highlight">45</i>&nbsp;            if (p.getType().name().equals(type))</b>
-<b class="fc"><i class="no-highlight">46</i>&nbsp;                total+=p.getAmount();</b>
-<b class="fc"><i class="no-highlight">47</i>&nbsp;        }</b>
-<b class="fc"><i class="no-highlight">48</i>&nbsp;        return total;</b>
-<i class="no-highlight">49</i>&nbsp;    }
-<i class="no-highlight">50</i>&nbsp;}
+<i class="no-highlight">41</i>&nbsp;
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        if(l==null || l.isEmpty()){</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;            return total;</b>
+<i class="no-highlight">44</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        for (Payment p:l){</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;            if (p.getType().name().equals(type))</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;                total+=p.getAmount();</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        }</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        return total;</b>
+<i class="no-highlight">50</i>&nbsp;    }
+<i class="no-highlight">51</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -149,7 +150,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-04-11 15:18</div>
+    <div style="float:right;">generated on 2022-04-11 16:23</div>
 </div>
 </body>
 </html>
