@@ -12,10 +12,10 @@
 <p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width=231 height=56 src="http://localhost/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
 <div class="doc_title"><p>Test Specification</p></div>
 <div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Prj234<br/>Test Suite: Prj234 - iair2746_WBT</p></div>
-<div class="summary"><p id="printedby">Printed by TestLink on 08/04/2022</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 11/04/2022</p></div>
 <div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
 <h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.iair2746_WBT</a></b></p>
-<p style="padding-left: 45px;"><a href="#toc_tc14691">234-51: TC01-Valid</a></p><p style="padding-left: 45px;"><a href="#toc_tc14693">234-52: TC01-Invalid</a></p></div><h1 class="doclevel" >Scope</h1>
+<p style="padding-left: 45px;"><a href="#toc_tc14691">234-51: TC01-Valid</a></p><p style="padding-left: 45px;"><a href="#toc_tc14693">234-52: TC02-Invalid</a></p><p style="padding-left: 45px;"><a href="#toc_tc14978">234-53: TC03-Valid2</a></p></div><h1 class="doclevel" >Scope</h1>
 <div class="txtlevel"><p>Testing project for group 234</p></div>
  <br/><a name='toc_1'></a>
 <h1 class='doclevel'>1.Test Suite : iair2746_WBT</h1>
@@ -39,11 +39,11 @@
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
 <tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testGetTotalAmountValid</td></tr>
-<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">&nbsp;None<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F02:  Get total amount [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>
-<a name="toc_tc14693"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-52: TC01-Invalid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<a name="toc_tc14693"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-52: TC02-Invalid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">hcir2734</td></tr>
 <tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testGetTotalAmountInvalid&nbsp;():void&nbsp; method.</p>
 
@@ -62,7 +62,24 @@
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
 <tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testGetTotalAmountInvalid</td></tr>
-<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">&nbsp;None<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F02:  Get total amount [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc14978"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case 234-53: TC03-Valid2&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">hcir2734</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>This is a test case for&nbsp;testGetTotalAmountValid2 ():void&nbsp; method.</p>
+
+<p>eg: (input data): type=&quot;Card&quot; and&nbsp;&nbsp;the file contains no rows.</p>
+
+<p>&nbsp; &nbsp; &nbsp; (expected output): 0</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>type belongs to {Cash, Card}</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">High</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.java.PizzaServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.java.PizzaServiceTest#testGetTotalAmountValid2</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">iair2746_F02:  Get total amount [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>
