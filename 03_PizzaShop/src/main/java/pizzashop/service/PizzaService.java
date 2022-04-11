@@ -38,6 +38,7 @@ public class PizzaService {
         if(!type.equals("Card") && !type.equals("Cash")){
             throw new ServiceException("Invalid payment type.");
         }
+
         if(l==null || l.isEmpty()){
             return total;
         }
