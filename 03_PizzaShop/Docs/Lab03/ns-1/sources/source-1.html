@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PizzaService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">pizzashop.service</a>
+</div>
+
+<h1>Coverage Summary for Class: PizzaService (pizzashop.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PizzaService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (18/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package pizzashop.service;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import pizzashop.model.MenuDataModel;
+<i class="no-highlight">4</i>&nbsp;import pizzashop.model.Payment;
+<i class="no-highlight">5</i>&nbsp;import pizzashop.model.PaymentType;
+<i class="no-highlight">6</i>&nbsp;import pizzashop.repository.MenuRepository;
+<i class="no-highlight">7</i>&nbsp;import pizzashop.repository.PaymentRepository;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;import java.util.List;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;public class PizzaService {
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;    private MenuRepository menuRepo;
+<i class="no-highlight">15</i>&nbsp;    private PaymentRepository payRepo;
+<i class="no-highlight">16</i>&nbsp;
+<b class="fc"><i class="no-highlight">17</i>&nbsp;    public PizzaService(MenuRepository menuRepo, PaymentRepository payRepo){</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        this.menuRepo=menuRepo;</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        this.payRepo=payRepo;</b>
+<i class="no-highlight">20</i>&nbsp;    }
+<i class="no-highlight">21</i>&nbsp;
+<b class="nc"><i class="no-highlight">22</i>&nbsp;    public List&lt;MenuDataModel&gt; getMenuData(){return menuRepo.getMenu();}</b>
+<i class="no-highlight">23</i>&nbsp;
+<b class="fc"><i class="no-highlight">24</i>&nbsp;    public List&lt;Payment&gt; getPayments(){return payRepo.getAll(); }</b>
+<i class="no-highlight">25</i>&nbsp;
+<i class="no-highlight">26</i>&nbsp;    public void addPayment(int table, PaymentType type, double amount){
+<b class="fc"><i class="no-highlight">27</i>&nbsp;        if(table &lt;= 0 || table &gt;8) return;</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        if(amount &lt;= 0 || amount &gt; 10000) return;</b>
+<i class="no-highlight">29</i>&nbsp;
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        Payment payment= new Payment(table, type, amount);</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        payRepo.add(payment);</b>
+<i class="no-highlight">32</i>&nbsp;    }
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;    public double getTotalAmount(String type) throws ServiceException {
+<i class="no-highlight">35</i>&nbsp;
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        double total=0.0f;</b>
+<b class="fc"><i class="no-highlight">37</i>&nbsp;        List&lt;Payment&gt; l=getPayments();</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        if(!type.equals(&quot;Card&quot;) &amp;&amp; !type.equals(&quot;Cash&quot;)){</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;            throw new ServiceException(&quot;Invalid payment type.&quot;);</b>
+<i class="no-highlight">40</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">41</i>&nbsp;        if(l==null || l.isEmpty()){</b>
+<b class="nc"><i class="no-highlight">42</i>&nbsp;            return total;</b>
+<i class="no-highlight">43</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">44</i>&nbsp;        for (Payment p:l){</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;            if (p.getType().name().equals(type))</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;                total+=p.getAmount();</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        }</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        return total;</b>
+<i class="no-highlight">49</i>&nbsp;    }
+<i class="no-highlight">50</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-04-11 15:18</div>
+</div>
+</body>
+</html>
