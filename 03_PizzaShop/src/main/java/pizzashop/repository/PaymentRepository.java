@@ -1,6 +1,5 @@
 package pizzashop.repository;
 
-import pizzashop.model.MenuDataModel;
 import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 
