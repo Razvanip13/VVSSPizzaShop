@@ -55,7 +55,7 @@ public class TopDownRTest {
 
     @Test
     void testAddPayment(){
-        when(payment.toString()).thenReturn("10,Cash,18.0");
+        when(payment.toString()).thenReturn("6,Cash,18.0");
         when(payment.getAmount()).thenReturn(18d);
         when(payment.getType()).thenReturn(PaymentType.Cash);
         when(payment.getTableNumber()).thenReturn(6);
