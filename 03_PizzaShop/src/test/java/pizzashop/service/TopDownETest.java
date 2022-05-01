@@ -14,10 +14,9 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-public class TopDownETest {
+
+class TopDownETest {
 
     private Payment payment, payment2;
     private PaymentRepository paymentRepository;
