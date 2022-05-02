@@ -49,10 +49,11 @@ class PaymentRepositoryTest {
     void testAddPayment(){
 
         when(payment.getAmount()).thenReturn(18d);
-        when(payment.getTableNumber()).thenReturn(10);
+        when(payment.getTableNumber()).thenReturn(1);
         when(payment.getType()).thenReturn(PaymentType.Cash);
-        when(payment.toString()).thenReturn("10,Cash,18.0");
+        when(payment.toString()).thenReturn("1,Cash,18.0");
         paymentRepository.add(payment);
+
         List<Payment> payments= paymentRepository.getAll();
         Payment latestPayment= payments.get(payments.size()-1);
         assertEquals(latestPayment.getTableNumber(),payment.getTableNumber());
@@ -62,19 +63,11 @@ class PaymentRepositoryTest {
     @Test
     void testGetAll(){
 
-//        when(payment.getAmount()).thenReturn(18d);
-//        when(payment.getTableNumber()).thenReturn(10);
-//        when(payment.getType()).thenReturn(PaymentType.Cash);
         when(payment.toString()).thenReturn("10,Cash,18.0");
         paymentRepository.add(payment);
-//        verify(payment).getAmount();
 
-//        when(payment2.getAmount()).thenReturn(190d);
-//        when(payment2.getTableNumber()).thenReturn(4);
-//        when(payment2.getType()).thenReturn(PaymentType.Card);
         when(payment2.toString()).thenReturn("4,Card,190.0");
         paymentRepository.add(payment2);
-//        verify(payment2).getType();
 
         List<Payment> payments= paymentRepository.getAll();
         Payment latestPayment= payments.get(payments.size()-1);
