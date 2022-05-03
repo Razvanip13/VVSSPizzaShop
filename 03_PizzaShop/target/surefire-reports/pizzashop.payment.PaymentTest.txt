@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: pizzashop.service.TopDownETest
+Test set: pizzashop.payment.PaymentTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in pizzashop.service.TopDownETest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in pizzashop.payment.PaymentTest
