@@ -26,6 +26,14 @@ class PizzaServiceTest {
     @BeforeEach
     void setUp() {
         service = new PizzaService(menuRepository, paymentRepository);
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("target/classes/data/payments_empty.txt"));
+            bw.write("");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @AfterEach
@@ -194,17 +202,14 @@ class PizzaServiceTest {
     }
 
     @Test
-    void testGetTotalAmountValid2(){
+    void testGetTotalAmountValid2() throws ServiceException {
 
         PaymentRepository paymentRepository2 = new PaymentRepository("target/classes/data/payments_empty.txt");
         PizzaService service2 = new PizzaService(menuRepository,paymentRepository2);
 
 
-        try {
-            assertEquals(0,service2.getTotalAmount("Card"));
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        }
+
+        assertEquals(0,service2.getTotalAmount("Card"));
 
     }
 
