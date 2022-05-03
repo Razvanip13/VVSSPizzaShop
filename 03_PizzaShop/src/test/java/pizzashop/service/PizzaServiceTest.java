@@ -202,15 +202,15 @@ class PizzaServiceTest {
     }
 
     @Test
-    void testGetTotalAmountValidAgain() throws ServiceException {
+    void testAmountValidAgain() throws ServiceException {
 
-//        PaymentRepository paymentRepository2 = new PaymentRepository("target/classes/data/payments_empty.txt");
-//        PizzaService service2 = new PizzaService(menuRepository,paymentRepository2);
-//
-//
-//
-//        assertEquals(0,service2.getTotalAmount("Card"));
-        assertEquals(0,0);
+        PaymentRepository paymentRepository2 = new PaymentRepository("target/classes/data/payments_empty.txt");
+        PizzaService service2 = new PizzaService(menuRepository,paymentRepository2);
+
+
+
+        assertEquals(0,service2.getTotalAmount("Card"));
+
     }
 
 }
