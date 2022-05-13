@@ -43,6 +43,13 @@ class PaymentRepositoryTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("target/classes/data/payments_empty.txt"));
+            bw.write("");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

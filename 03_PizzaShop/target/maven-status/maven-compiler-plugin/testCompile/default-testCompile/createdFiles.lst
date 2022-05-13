@@ -1,5 +1,6 @@
 pizzashop\service\PizzaServiceTest.class
 pizzashop\service\TopDownETest.class
 pizzashop\service\TopDownRTest.class
+pizzashop\payment\PaymentTest.class
 pizzashop\repository\PaymentRepositoryTest.class
 pizzashop\service\PizzaService2Test.class
