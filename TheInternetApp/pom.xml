@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <build>
         <plugins>
@@ -9,16 +7,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
-
                 <configuration>
-
                     <suiteXmlFiles>
                         <suiteXmlFile>${testNGXml}</suiteXmlFile>
                         <!-- <suiteXmlFile>src/test/resources/test_parameters.xml</suiteXmlFile> -->
                     </suiteXmlFiles>
-
                     <failIfNoTests>true</failIfNoTests>
-
                     <includes>
                         <!--defaults-->
                         <include>**/Test*.java</include>
@@ -26,16 +20,13 @@
                         <include>**/*Tests.java</include>
                         <include>**/*TestCase.java</include>
                     </includes>
-
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
     <groupId>org.example</groupId>
     <artifactId>TheInternetApp</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <testNG.version>7.3.0</testNG.version>
         <testNGXml>testSuites/defaultAll.xml</testNGXml>
@@ -43,7 +34,6 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -51,30 +41,23 @@
             <version>3.141.59</version>
             <!--<scope>test</scope>-->
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/com.microsoft.edge/msedge-selenium-tools-java -->
         <dependency>
-            <groupId>com.microsoft.edge</groupId>
-            <artifactId>msedge-selenium-tools-java</artifactId>
-            <version>3.141.0</version>
-        </dependency>
-
+        <groupId>com.microsoft.edge</groupId>
+        <artifactId>msedge-selenium-tools-java</artifactId>
+        <version>3.141.0</version>
+    </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testNG.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- surefire-report -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-report-plugin</artifactId>
             <version>${maven.surefire.plugin.version}</version>
         </dependency>
-
-
     </dependencies>
-
-
 </project>
