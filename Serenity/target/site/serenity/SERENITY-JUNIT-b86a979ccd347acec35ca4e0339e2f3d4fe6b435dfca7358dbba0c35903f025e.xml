@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="org.example.features.search.SearchByKeywordsMain" skipped="0" tests="2" time="14.88" timestamp="2022-05-14 06:37:00"><testcase classname="org.example.features.search.SearchByKeywordsMain" name="Valid logout test"/><testcase classname="org.example.features.search.SearchByKeywordsMain" name="Invalid logout test"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
+org.example.pages.SwagMainPage.clickListDropdown(SwagMainPage.java:21)&#13;
+org.example.steps.serenity.LogoutSteps.clickDropdownButton(LogoutSteps.java:20)&#13;
+org.example.steps.serenity.LogoutSteps.computeValidSteps(LogoutSteps.java:35)&#13;
+org.example.features.search.SearchByKeywordsMain.invalidLogoutTest(SearchByKeywordsMain.java:39)&#13;
+</system-err></testcase></testsuite>

@@ -60,6 +60,5 @@ public class ContextMenuTest {
         finally {
             driver.quit();
         }
-
     }
 }
