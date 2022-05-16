@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,28 +10,34 @@ import pages.MainPage;
 import static org.testng.AssertJUnit.assertTrue;
 import static pages.BaseClass.*;
 
-public class FormAuthenticationTest {
+public class LogoutTest{
+
 
     LoginPage loginPage;
 
     @Test
-    public void testSuccessfulFormAuthentication() {
+    public void testSuccessfulLogout() {
 
         loginPage.setUsernameField(prop.getProperty("username"));
         loginPage.setPasswordField(prop.getProperty("password"));
         MainPage mainPage = loginPage.clickLoginButton();
-        assertTrue(mainPage.getTitle().contains("PRODUCTS"));
+        loginPage = mainPage.clickLogoutButton();
+
+        assertTrue(loginPage.assertExistsText("Accepted usernames are:"));
 
     }
 
     @Test
-    public void testUnsuccessfulFormAuthentication() {
+    public void testUnSuccessfulLogout() {
 
         loginPage.setUsernameField(prop.getProperty("wrong-username"));
         loginPage.setPasswordField(prop.getProperty("password"));
-        loginPage.clickLoginButton();
-        assertTrue(loginPage.getErrorMessage().contains("Epic sadface: Username and password do not match any user in this service"));
-
+        MainPage mainPage = loginPage.clickLoginButton();
+        try {
+            loginPage = mainPage.clickLogoutButton();
+        } catch (NoSuchElementException e) {
+            assertTrue(loginPage.assertExistsText("Accepted usernames are:"));
+        }
     }
 
     @BeforeMethod

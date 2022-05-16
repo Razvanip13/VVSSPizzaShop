@@ -8,13 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CartPage extends BaseClass{
 
 
-    private By buttonCheckout  = By.id("checkout");
-    private By buttonContinue  = By.id("continue");
-    private By buttonFinish  = By.id("finish");
-    private By fieldFirstName = By.id("first-name");
-    private By fieldLastName = By.id("last-name");
-    private By fieldPostalCode = By.id("postal-code");
-    private By divCompleteOrder = By.className("complete-text");
+    private final By buttonCheckout  = By.id("checkout");
+    private final By buttonContinue  = By.id("continue");
+    private final By buttonFinish  = By.id("finish");
+    private final By fieldFirstName = By.id("first-name");
+    private final By fieldLastName = By.id("last-name");
+    private final By fieldPostalCode = By.id("postal-code");
+    private final By divCompleteOrder = By.className("complete-text");
 
 
     public CartPage() {
@@ -35,13 +35,13 @@ public class CartPage extends BaseClass{
         driver.findElement(buttonFinish).click();
     }
 
-    public void fillData(){
-        driver.findElement(fieldFirstName).sendKeys("Sheldon");
-        driver.findElement(fieldLastName).sendKeys("Sheldon");
-        driver.findElement(fieldPostalCode).sendKeys("123123");
+    public void fillData(String firstName, String lastName, String postalCode){
+        driver.findElement(fieldFirstName).sendKeys(firstName);
+        driver.findElement(fieldLastName).sendKeys(lastName);
+        driver.findElement(fieldPostalCode).sendKeys(postalCode);
     }
 
-    public boolean orderCompleted(){
-        return driver.findElement(divCompleteOrder).getText().equals("Your order has been dispatched, and will arrive just as fast as the pony can get there!");
+    public String orderCompleted(){
+        return driver.findElement(divCompleteOrder).getText();
     }
 }

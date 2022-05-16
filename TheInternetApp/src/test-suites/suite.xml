@@ -3,7 +3,7 @@
 
     <test name="End2End Test">
         <classes>
-            <class name="tests.FormAuthenticationTest"/>
+            <class name="tests.ScenarioTest"/>
         </classes>
     </test>
 </suite>

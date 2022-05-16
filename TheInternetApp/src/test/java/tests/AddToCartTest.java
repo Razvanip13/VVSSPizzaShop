@@ -6,41 +6,51 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
 import static pages.BaseClass.*;
+import static pages.BaseClass.prop;
 
-public class FormAuthenticationTest {
+public class AddToCartTest {
+
 
     LoginPage loginPage;
+    MainPage mainPage;
 
     @Test
-    public void testSuccessfulFormAuthentication() {
-
+    public void addProductToBasket() {
         loginPage.setUsernameField(prop.getProperty("username"));
         loginPage.setPasswordField(prop.getProperty("password"));
         MainPage mainPage = loginPage.clickLoginButton();
-        assertTrue(mainPage.getTitle().contains("PRODUCTS"));
+        mainPage.addBackapackToCart();
 
+        assertEquals(mainPage.getTotalBasketItems(), 1);
     }
 
     @Test
-    public void testUnsuccessfulFormAuthentication() {
-
-        loginPage.setUsernameField(prop.getProperty("wrong-username"));
+    public void deleteProductFromBasket() {
+        loginPage.setUsernameField(prop.getProperty("username"));
         loginPage.setPasswordField(prop.getProperty("password"));
-        loginPage.clickLoginButton();
-        assertTrue(loginPage.getErrorMessage().contains("Epic sadface: Username and password do not match any user in this service"));
+        MainPage mainPage = loginPage.clickLoginButton();
+        mainPage.addBackapackToCart();
+        mainPage.addBikeLightToCart();
 
+        assertEquals(mainPage.getTotalBasketItems(), 2);
+
+        mainPage.deleteBightLightFromCart();
+
+        assertEquals(mainPage.getTotalBasketItems(), 1);
     }
 
     @BeforeMethod
     public void setUp() {
         initialization();
         loginPage = new LoginPage();
+        mainPage = new MainPage();
     }
 
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
+
 }

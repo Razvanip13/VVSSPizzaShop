@@ -5,29 +5,30 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainPage extends BaseClass{
+public class MainPage extends BaseClass {
 
-    private By title= By.className("title");
-    private By addButtonBackpack = By.id("add-to-cart-sauce-labs-backpack");
-    private By addButtonBikeLight = By.id("add-to-cart-sauce-labs-bike-light");
-    private By removeButtonBikeLight = By.id("remove-sauce-labs-bike-light");
-    private By basketCounter = By.className("shopping_cart_badge");
-    private By buttonCart = By.className("shopping_cart_link");
-    private By buttonOptions = By.id("react-burger-menu-btn");
-    private By buttonLogout = By.id("logout_sidebar_link");
+    private final By title = By.className("title");
+    private final By addButtonBackpack = By.id("add-to-cart-sauce-labs-backpack");
+    private final By addButtonBikeLight = By.id("add-to-cart-sauce-labs-bike-light");
+    private final By removeButtonBikeLight = By.id("remove-sauce-labs-bike-light");
+    private final By basketCounter = By.className("shopping_cart_badge");
+    private final By buttonCart = By.className("shopping_cart_link");
+    private final By buttonOptions = By.id("react-burger-menu-btn");
+    private final By buttonLogout = By.id("logout_sidebar_link");
 
     public MainPage() {
         PageFactory.initElements(driver, this);
     }
-    public String getTitle(){
+
+    public String getTitle() {
         return driver.findElement(title).getText();
     }
 
-    public void addBackapackToCart(){
+    public void addBackapackToCart() {
         driver.findElement(addButtonBackpack).click();
     }
 
-    public void addBikeLightToCart(){
+    public void addBikeLightToCart() {
         driver.findElement(addButtonBikeLight).click();
     }
 
@@ -35,16 +36,16 @@ public class MainPage extends BaseClass{
         return Integer.parseInt(driver.findElement(basketCounter).getText());
     }
 
-    public void deleteBightLightFromCart(){
+    public void deleteBightLightFromCart() {
         driver.findElement(removeButtonBikeLight).click();
     }
 
-    public CartPage clickCartButton(){
+    public CartPage clickCartButton() {
         driver.findElement(buttonCart).click();
         return new CartPage();
     }
 
-    public LoginPage clickLogoutButton(){
+    public LoginPage clickLogoutButton() {
         driver.findElement(buttonOptions).click();
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
