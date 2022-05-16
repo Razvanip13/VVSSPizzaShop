@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage extends BaseClass{
 
@@ -11,6 +13,8 @@ public class MainPage extends BaseClass{
     private By removeButtonBikeLight = By.id("remove-sauce-labs-bike-light");
     private By basketCounter = By.className("shopping_cart_badge");
     private By buttonCart = By.className("shopping_cart_link");
+    private By buttonOptions = By.id("react-burger-menu-btn");
+    private By buttonLogout = By.id("logout_sidebar_link");
 
     public MainPage() {
         PageFactory.initElements(driver, this);
@@ -40,4 +44,14 @@ public class MainPage extends BaseClass{
         return new CartPage();
     }
 
+    public LoginPage clickLogoutButton(){
+        driver.findElement(buttonOptions).click();
+
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(buttonLogout));
+
+        driver.findElement(buttonLogout).click();
+
+        return new LoginPage();
+    }
 }
