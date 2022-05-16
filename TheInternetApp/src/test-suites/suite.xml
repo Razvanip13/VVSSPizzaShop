@@ -3,16 +3,9 @@
        thread-count="1">
 
     <test name="End2End Test">
-<!--        <parameter name="url"-->
-<!--                   value="https://the-internet.herokuapp.com/"></parameter>-->
-<!--        <parameter name="driverPath"-->
-<!--                   value="resources//chromedriver.exe"></parameter>-->
-<!--        <parameter name="browser" value="Chrome"></parameter>-->
-<!--        <parameter name="user" value="tomsmith"></parameter>-->
-<!--        <parameter name="password" value="SuperSecretPassword!"></parameter>-->
         <classes>
-
-            <class name="FormAuthenticationTest"></class>
+            <class name="FormAuthenticationTest"/>
+            <class name="AddToCartTest"/>
         </classes>
     </test>
 </suite>
