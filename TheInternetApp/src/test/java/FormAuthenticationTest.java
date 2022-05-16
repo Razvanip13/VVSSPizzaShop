@@ -1,61 +1,37 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.BaseClass;
+import pages.LoginPage;
+import pages.MainPage;
 
 import static org.testng.AssertJUnit.assertTrue;
+import static pages.BaseClass.*;
 
 public class FormAuthenticationTest {
 
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By buttonLogin = By.id("login-button");
-    private By title = By.className("title");
-    private By error = By.cssSelector("h3");
+    LoginPage loginPage;
+
 
     @Test
     public void testSuccessfulFormAuthentication() {
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        loginPage.setUsernameField(prop.getProperty("username"));
+        loginPage.setPasswordField(prop.getProperty("password"));
+        MainPage mainPage = loginPage.clickLoginButton();
+        assertTrue(mainPage.getTitle().contains("PRODUCTS"));
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        // open page
-        String url = "https://www.saucedemo.com/";
-        driver.get(url);
-
-        driver.findElement(usernameField).sendKeys("standard_user");
-        driver.findElement(passwordField).sendKeys("secret_sauce");
-        driver.findElement(buttonLogin).click();
-
-        String text = driver.findElement(title).getText();
-
-        assertTrue(text.contains("PRODUCTS"));
-
-        driver.quit();
     }
 
-    @Test
-    public void testUnsuccessfulFormAuthentication() {
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+    @BeforeMethod
+    public void setUp() {
+        initialization();
+        loginPage = new LoginPage();
+    }
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        // open page
-        String url = "https://www.saucedemo.com/";
-        driver.get(url);
-
-        driver.findElement(usernameField).sendKeys("standard_user");
-        driver.findElement(passwordField).sendKeys("alahalah");
-        driver.findElement(buttonLogin).click();
-
-        String text = driver.findElement(error).getText();
-
-        assertTrue(text.contains("Epic sadface: Username and password do not match any user in this service"));
-
+    @AfterMethod
+    public void tearDown() {
         driver.quit();
     }
 }
