@@ -13,8 +13,6 @@
         <classes>
 
             <class name="FormAuthenticationTest"></class>
-            <class name="FormAuthentificationTest2"></class>
-            <class name="ContextMenuTest"></class>
         </classes>
     </test>
 </suite>

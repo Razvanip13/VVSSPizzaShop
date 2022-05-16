@@ -1,20 +1,17 @@
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
 
 public class FormAuthenticationTest {
 
-    private String username = "tomsmith";
-    private String password = "SuperSecretPassword!";
-    private By usernameField = By.id("username");
-    private By statusAlert = By.id("flash");
+    private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
-    private By loginButton = By.cssSelector("#login button");
+    private By buttonLogin = By.id("login-button");
+    private By title = By.className("title");
+    private By error = By.cssSelector("h3");
 
     @Test
     public void testSuccessfulFormAuthentication() {
@@ -25,22 +22,22 @@ public class FormAuthenticationTest {
         driver.manage().window().maximize();
 
         // open page
-        String url = "https://the-internet.herokuapp.com/login";
+        String url = "https://www.saucedemo.com/";
         driver.get(url);
 
-        driver.findElement(usernameField).sendKeys(username);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(loginButton).click();
+        driver.findElement(usernameField).sendKeys("standard_user");
+        driver.findElement(passwordField).sendKeys("secret_sauce");
+        driver.findElement(buttonLogin).click();
 
-        String text = driver.findElement(statusAlert).getText();
+        String text = driver.findElement(title).getText();
 
-        assertTrue(text.contains("You logged into a secure area!"));
+        assertTrue(text.contains("PRODUCTS"));
 
         driver.quit();
     }
 
     @Test
-    public void testUnsuccessfuluFormAuthentication() {
+    public void testUnsuccessfulFormAuthentication() {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
@@ -48,19 +45,17 @@ public class FormAuthenticationTest {
         driver.manage().window().maximize();
 
         // open page
-        String url = "https://the-internet.herokuapp.com/login";
+        String url = "https://www.saucedemo.com/";
         driver.get(url);
 
-        driver.findElement(usernameField).sendKeys(username + "2");
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(loginButton).click();
+        driver.findElement(usernameField).sendKeys("standard_user");
+        driver.findElement(passwordField).sendKeys("alahalah");
+        driver.findElement(buttonLogin).click();
 
-        String text = driver.findElement(statusAlert).getText();
+        String text = driver.findElement(error).getText();
 
-        assertTrue(text.contains("Your username is invalid!"));
+        assertTrue(text.contains("Epic sadface: Username and password do not match any user in this service"));
 
         driver.quit();
-
-
     }
 }
