@@ -1,7 +1,8 @@
+package tests;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.BaseClass;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -12,7 +13,6 @@ public class FormAuthenticationTest {
 
     LoginPage loginPage;
 
-
     @Test
     public void testSuccessfulFormAuthentication() {
 
@@ -20,6 +20,16 @@ public class FormAuthenticationTest {
         loginPage.setPasswordField(prop.getProperty("password"));
         MainPage mainPage = loginPage.clickLoginButton();
         assertTrue(mainPage.getTitle().contains("PRODUCTS"));
+
+    }
+
+    @Test
+    public void testUnsuccessfulFormAuthentication() {
+
+        loginPage.setUsernameField(prop.getProperty("wrong-username"));
+        loginPage.setPasswordField(prop.getProperty("password"));
+        loginPage.clickLoginButton();
+        assertTrue(loginPage.getErrorMessage().contains("Epic sadface: Username and password do not match any user in this service"));
 
     }
 
