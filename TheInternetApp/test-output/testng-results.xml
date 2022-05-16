@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-16T16:48:16 EEST" name="Tests" finished-at="2022-05-16T16:48:24 EEST" duration-ms="7710">
+  <suite started-at="2022-05-16T20:40:35 EEST" name="Tests" finished-at="2022-05-16T20:40:41 EEST" duration-ms="6034">
     <groups>
     </groups>
-    <test started-at="2022-05-16T16:48:16 EEST" name="End2End Test" finished-at="2022-05-16T16:48:24 EEST" duration-ms="7710">
-      <class name="tests.FormAuthenticationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:17 EEST" name="setUp" finished-at="2022-05-16T16:48:20 EEST" duration-ms="3299" status="PASS">
+    <test started-at="2022-05-16T20:40:35 EEST" name="End2End Test" finished-at="2022-05-16T20:40:41 EEST" duration-ms="6034">
+      <class name="tests.ScenarioTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ScenarioTest@7fe8ea47]" started-at="2022-05-16T20:40:35 EEST" name="setUp" finished-at="2022-05-16T20:40:38 EEST" duration-ms="3673" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testSuccessfulFormAuthentication()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:20 EEST" name="testSuccessfulFormAuthentication" finished-at="2022-05-16T16:48:20 EEST" duration-ms="482" status="PASS">
+        <test-method signature="performOperations()[pri:0, instance:tests.ScenarioTest@7fe8ea47]" started-at="2022-05-16T20:40:38 EEST" name="performOperations" finished-at="2022-05-16T20:40:40 EEST" duration-ms="1664" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSuccessfulFormAuthentication -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:20 EEST" name="tearDown" finished-at="2022-05-16T16:48:21 EEST" duration-ms="625" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:21 EEST" name="setUp" finished-at="2022-05-16T16:48:23 EEST" duration-ms="2316" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="testUnsuccessfulFormAuthentication()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:23 EEST" name="testUnsuccessfulFormAuthentication" finished-at="2022-05-16T16:48:24 EEST" duration-ms="325" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testUnsuccessfulFormAuthentication -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.FormAuthenticationTest@69b794e2]" started-at="2022-05-16T16:48:24 EEST" name="tearDown" finished-at="2022-05-16T16:48:24 EEST" duration-ms="620" status="PASS">
+        </test-method> <!-- performOperations -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ScenarioTest@7fe8ea47]" started-at="2022-05-16T20:40:40 EEST" name="tearDown" finished-at="2022-05-16T20:40:41 EEST" duration-ms="659" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- tests.FormAuthenticationTest -->
+      </class> <!-- tests.ScenarioTest -->
     </test> <!-- End2End Test -->
   </suite> <!-- Tests -->
 </testng-results>
