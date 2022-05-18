@@ -27,4 +27,5 @@ hs_err_pid*
 
 payments.txt
 03_PizzaShop/.idea/*
-Serenity/.idea/sonarlint/issuestore/
+Serenity/.idea/sonarlint/issuestore/*
+TheInternetApp/.idea/sonarlint/issuestore/*

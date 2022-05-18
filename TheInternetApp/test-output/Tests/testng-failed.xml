@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Tests]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="End2End Test(failed)">
+    <classes>
+      <class name="tests.ScenarioTest">
+        <methods>
+          <include name="addToCartTest"/>
+          <include name="logoutTest"/>
+          <include name="checkoutTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- tests.ScenarioTest -->
+    </classes>
+  </test> <!-- End2End Test(failed) -->
+</suite> <!-- Failed suite [Tests] -->

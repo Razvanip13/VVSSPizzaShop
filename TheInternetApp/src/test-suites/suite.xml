@@ -3,6 +3,10 @@
 
     <test name="End2End Test">
         <classes>
+            <class name="tests.FormAuthenticationTest"/>
+            <class name="tests.AddToCartTest"/>
+            <class name="tests.CheckoutTest"/>
+            <class name="tests.LogoutTest"/>
             <class name="tests.ScenarioTest"/>
         </classes>
     </test>

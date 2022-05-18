@@ -14,14 +14,15 @@ import static org.testng.AssertJUnit.assertTrue;
 public class ScenarioTest extends BaseClass {
 
     LoginPage loginPage;
+    MainPage mainPage;
 
-    @Test
-    public void performOperations(){
+    @Test()
+    public void performOperations() {
 
         //login
         loginPage.setUsernameField(prop.getProperty("username"));
         loginPage.setPasswordField(prop.getProperty("password"));
-        MainPage mainPage = loginPage.clickLoginButton();
+        mainPage = loginPage.clickLoginButton();
         assertTrue(mainPage.getTitle().contains("PRODUCTS"));
 
         //add to cart
@@ -41,6 +42,7 @@ public class ScenarioTest extends BaseClass {
         loginPage = mainPage.clickLogoutButton();
         assertTrue(loginPage.assertExistsText("Accepted usernames are:"));
     }
+
 
     @BeforeMethod
     public void setUp() {
